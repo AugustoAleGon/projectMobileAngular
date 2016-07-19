@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<!-- Indicando la codificación de caracteres utilizada -->
+	<meta charset="utf-8" />
+	<!-- Especificando la URL base para todos los demas enlaces de la página -->
+	<base href="holamundo" />
+	<!-- Titulo de la app -->
+	<title> Mi primera app movil </title>
+	<!-- Etiquetas meta utilizadas en el demo y en el modelo de prueba -->
+	<meta http-equiv="X-UA-Compatible" content="IE-edge, chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+	<!-- Recursos utilizados exportados desde una url -->
+	<link rel ="shortcut icon" href="/favicon.png" type="image/x-icon" />
+	<link rel="stylesheet" href="/dist/css/mobile-angular-ui-hover.min.css" />
+	<link rel="stylesheet" href="/dist/css/mobile-angular-ui-base.min.css" />
+	<link rel="stylesheet" href="/dist/css/mobile-angular-ui-desktop.min.css" />
+	<!-- Falta por crear el holamundo.css además de añadir todas las propiedades correspondientes -->
+	<link rel="stylesheet" href="holamundo.css" /> 
+	<!-- Fuentes de Script necesarias para utilizar mobile angular -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular-route.min.js"></script>
+	<script src="/dist/js/mobile-angular-ui.min.js"></script>
+	<!-- Importamos otro script para utilizar $touch -->
+	<script src="/dist/js/mobile-angular-ui.gestures.min.js"> </script>
+	<script src="holamundo.js"></script>
+    </head>
+
+    <!-- Inicializamos el body con las directivas correspondientes para mobile angular ui -->
+    <body
+	ng-app="helloworldexample"
+	ng-controller="MainController"
+	ui-prevent-touch-defaults>
+
+        <!-- Sidebars Yaaay! -->
+        <div ng-include="'sidebar.html'" 
+            ui-track-as-search-param='true'
+            class="sidebar sidebar-left">
+        </div>
+        <div class="app" ui-swipe-right='Ui.turnOn("uiSidebarLeft")'>
+
+            <!-- Añadiendo nav bars de prueba para mejor estilizado en la app -->
+            <div class="navbar navbar-app navbar-absolute-top">
+                <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
+                  Hola Mundo App!!
+                </div>
+            <div class="btn-group pull-left">
+            <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
+                <i class="fa fa-bars"></i> Menu
+            </div>
+        </div>
+    </body>
+</html>
